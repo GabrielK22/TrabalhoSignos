@@ -16,7 +16,7 @@ public class TrabalhoSignos {
         Scanner ler = new Scanner(System.in);
         int sexo, diaN, mesN, anoN, idade, numS, corS;
         int diaA, mesA, anoA;
-        String cor;
+        String cor, signo;
         Calendar hoje = Calendar.getInstance();
         diaA = hoje.get(Calendar.DATE);
         mesA = hoje.get(Calendar.MONTH) + 1;
@@ -80,16 +80,15 @@ public class TrabalhoSignos {
             }
         }
         /**
-         * Resolver problema com ano bissexto!!
-         * 07/
+         * Resolver problema com ano bissexto!! 07/
          */
         //Processamento
-        idade = (anoA-anoN);
-        if((mesN>mesA) ||(mesN == mesA && diaN < diaA)){
+        idade = (anoA - anoN);
+        if ((mesN > mesA) || (mesN == mesA && diaN < diaA)) {
             idade--;
-            
+
         }
-        corS = (int) (1+ Math.random()*10);
+        corS = (int) (1 + Math.random() * 10);
         switch (corS) {
             case 1:
                 cor = "Preto";
@@ -122,8 +121,42 @@ public class TrabalhoSignos {
                 cor = "Laranja";
                 break;
         }
-        numS = (int)(1+Math.random()*99);
-           
+        numS = (int) (1 + Math.random() * 99);
+
+        //Signos
+        if ((mesN == 3 && diaN >= 21) || (mesN == 4 && diaN <= 19)) {
+            signo = "Áries";
+        } else if ((mesN == 4 && diaN >= 20) || (mesN == 5 && diaN <= 20)) {
+            signo = "Touro";
+        } else if ((mesN == 5 && diaN >= 21) || (mesN == 6 && diaN <= 20)) {
+            signo = "Gêmeos";
+        } else if ((mesN == 6 && diaN >= 21) || (mesN == 7 && diaN <= 22)) {
+            signo = "Cancer";
+        } else if ((mesN == 7 && diaN >= 23) || (mesN == 8 && diaN <= 22)) {
+            signo = "Leão";
+        } else if ((mesN == 8 && diaN >= 23) || (mesN == 9 && diaN <= 22)) {
+            signo = "Virgem";
+        } else if ((mesN == 9 && diaN >= 23) || (mesN == 10 && diaN <= 22)) {
+            signo = "Libra";
+        } else if ((mesN == 10 && diaN >= 23) || (mesN == 11 && diaN <= 21)) {
+            signo = "Escorpião";
+        } else if ((mesN == 11 && diaN >= 22) || (mesN == 12 && diaN <= 21)) {
+            signo = "Sagitário";
+        } else if ((mesN == 12 && diaN >= 22) || (mesN == 1 && diaN <= 19)) {
+            signo = "Capricórnio";
+        } else if ((mesN == 1 && diaN >= 20) || (mesN == 2 && diaN <= 18)) {
+            signo = "Aquário";
+        } else {
+            signo = "Peixes";
+        }
+        //Saida de dados 
+        if (sexo == 1) {
+            System.out.println("A sra." + nome + ", tem " + idade + " anos, seu número da sorte é " + numS + " e sua cor da sorte é " + cor);
+            System.out.println("Signo: "+signo);
+        } else {
+            System.out.println("O sr." + nome + ", que tem " + idade + " anos, seu número da sorte é " + numS + " e sua cor da sorte é " + cor);
+            System.out.println("Signo: "+signo);
+        }
     }
 
 }
